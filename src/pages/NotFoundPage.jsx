@@ -1,8 +1,8 @@
 export function NotFoundPage() {
   return (
-    <div style={{ display: "grid", gap: "12px" }}>
-      <h1 style={{ margin: 0 }}>404</h1>
-      <p style={{ margin: 0, color: "#555" }}>That page doesn’t exist.</p>
+    <div className="container">
+      <h1 className="container-title">404</h1>
+      <p className="container-description">That page doesn’t exist.</p>
     </div>
   );
 }

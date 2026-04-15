@@ -1,0 +1,19 @@
+.navigation {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.navigation-link {
+    padding: 8px 10px;
+    border-radius: 4px;
+    text-decoration: none;
+    color: inherit;
+    font-weight: 500;
+    background-color: transparent;
+}
+
+.navigation-link.active {
+    font-weight: 700;
+    background-color: #f2f2f2;
+}

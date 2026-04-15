@@ -28,7 +28,7 @@ export function TicketPage() {
     return (
       <section>
         <h2 style={{ marginTop: 0 }}>Ticket not found</h2>
-        <p style={{ opacity: 0.7 }}>
+        <p>
           No ticket exists for ID: <code>{ticketId}</code>
         </p>
         <button onClick={backToTickets}>Back to tickets</button>
@@ -41,9 +41,10 @@ export function TicketPage() {
       {/* Header */}
       <div style={{ display: "flex", flexDirection: "column", gap: 8}}>
         <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "-0.5px" }}>{ticket.title}</h2>
-        <span style={{ fontSize: 14 }}>
-          ID: {ticket.id} - Status: {ticket.status}
-        </span>
+        <ul>
+          <li>ID: {ticket.id}</li>
+          <li>Status: {ticket.status}</li>
+        </ul>        
       </div>
 
       {/* Tabs */}
@@ -92,7 +93,7 @@ export function TicketPage() {
     </div>
 
     {/* Back button at bottom */}
-    <div style={{ marginTop: 24 }}>
+    <div style={{ marginTop: 16 }}>
       <button onClick={backToTickets}>Back to tickets</button>
     </div>
   </section>

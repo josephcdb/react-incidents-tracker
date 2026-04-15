@@ -51,25 +51,14 @@ export function IncidentsPage() {
   });
 
   return (
-    <div style={{ display: "grid", gap: "12px" }}>
-      <h1 style={{ margin: 0 }}>Incidents</h1>
-
-      <p style={{ margin: 0, color: "#555" }}>
+    <div className="container">
+      <h1 className="container-title">Incidents</h1>
+      <p className="container-description">
         Filters on this page are URL-driven using search params.
       </p>
 
-      <section 
-        style={{ 
-          display: "flex",
-          gap: "12px",
-          flexWrap: "wrap",
-          padding: "12px",
-          border: "1px solid #eee",
-          borderRadius: "12px",
-          alignItems: "end"
-        }}
-      >
-        <label style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+      <section className="container-section">
+        <label>
           <span>Status</span>
           <select 
             value={status} 
@@ -82,7 +71,7 @@ export function IncidentsPage() {
           </select>
         </label>
 
-        <label style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <label>
           <span>Priority</span>
           <select
             value={priority}
@@ -96,7 +85,7 @@ export function IncidentsPage() {
           </select>
         </label>
 
-        <label style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
+        <label>
           <span>Search</span>
           <input 
             type="text"
@@ -108,26 +97,28 @@ export function IncidentsPage() {
 
         <button onClick={() => setSearchParams({})}>Clear All Filters</button>
         <button onClick={() => setSearchParams({ status: "open", priority: "high" })}>Set Open & High Priority</button>
-        
       </section>
 
-      <div style={{ display: "grid", gap: "4px" }}>
+      <div className="container">
         {filtered.length === 0 ? (
-          <div style={{ margin: 0, color: "#555" }}>No incidents match the current filters.</div>
+          <div className="container-description">
+            No incidents match the current filters.
+          </div>
         ) : (
           filtered.map((incident) => (
-            <div key={incident.id} style={{ padding: "12px", border: "1px solid #eee", borderRadius: "8px" }}>
-              <div style={{ fontWeight: "700" }}>
+            <div key={incident.id} className="container-wrapper">
+              <div className="container-subtitle">
                 ID: {incident.id} - {incident.title}
               </div>
-              <div style={{ color: "#555", fontSize: "14px"}}>
+              <div className="container-status">
                 Status: {incident.status} | Priority: {incident.priority}
               </div>
-              <Link to={`/incidents/${incident.id}`}>Open</Link>
-              <div style={{ fontWeight: 700 }}>Route param</div>
-                <div>
-                  <code>:id</code> = <code>{incident.id}</code>
-                </div>
+              <div className="container-subtitle">
+                  Route param:id = <code>{incident.id}</code>
+              </div>
+              <div className="container-link">
+                <Link to={`/incidents/${incident.id}`}>Open</Link>
+              </div>
             </div>
           ))
       )}

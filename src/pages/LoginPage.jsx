@@ -1,26 +1,24 @@
 export function LoginPage() {
   return (
-    <div style={{ display: "grid", gap: "12px", maxWidth: "420px" }}>
-      <h1 style={{ margin: 0 }}>Login</h1>
+    <div className="container container--wide">
+      <h1 className="container-title">Login</h1>
 
-      <p style={{ margin: 0, color: "#555" }}>
+      <p className="container-description">
         Please enter your credentials to log in.
       </p>
 
-      <div style={{ display: "grid", gap: "8px" }}>
-        <label style={{ display: "grid", gap: "4px" }}>
-          <span style={{ fontWeight: 700 }}>Email</span>
+      <div className="container-section container-section--grid">
+        <label>
+          <span className="container-subtitle">Email</span>
           <input type="email" placeholder="Enter your email" />
         </label>
 
-        <label style={{ display: "grid", gap: "4px" }}>
-          <span style={{ fontWeight: 700 }}>Password</span>
+        <label>
+          <span className="container-subtitle">Password</span>
           <input type="password" placeholder="Enter your password" />
         </label>
 
-        <button style={{ padding: "8px 12px", borderRadius: "4px" }}>
-            Sign In
-        </button>
+        <button>Sign In</button>
       </div>
     </div>
   );

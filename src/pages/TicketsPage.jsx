@@ -26,10 +26,10 @@ export function TicketsPage() {
   const suffix = qs ? `?${qs}` : "";
 
   return (
-    <section>
-      <h2 style={{ marginTop: 0 }}>Tickets</h2>
+    <section className="container">
+      <h2 className="container-title">Tickets</h2>
 
-      <div style={{ display: "flex", gap: 8, marginBottom: 12 }}>
+      <div className="tickets">
         <button
           onClick={() => setStatus("open")}
           aria-pressed={status === "open"}
@@ -47,17 +47,17 @@ export function TicketsPage() {
         </button>
       </div>
 
-      <ul style={{ paddingLeft: 18 }}>
+      <ul>
         {filtered.map((t) => (
-          <li key={t.id} style={{ marginBottom: 8 }}>
+          <li key={t.id}>
             <Link to={`/tickets/${t.id}${suffix}`}>{t.title}</Link>{" "}
-            <span style={{ opacity: 0.7 }}>({t.status})</span>
+            <span>({t.status})</span>
           </li>
         ))}
       </ul>
 
       {filtered.length === 0 ? (
-        <p style={{ opacity: 0.7 }}>No tickets match this filter.</p>
+        <p>No tickets match this filter.</p>
       ) : null}
     </section>
   );
