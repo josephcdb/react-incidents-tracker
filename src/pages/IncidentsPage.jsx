@@ -61,6 +61,8 @@ export function IncidentsPage() {
         <label>
           <span>Status</span>
           <select 
+            id="status-filter"
+            name="status-filter"
             value={status} 
             onChange={(e) => updateParam("status", e.target.value)}>
             {STATUS_OPTIONS.map((option) => (
@@ -74,6 +76,8 @@ export function IncidentsPage() {
         <label>
           <span>Priority</span>
           <select
+            id="priority-filter"
+            name="priority-filter"
             value={priority}
             onChange={(e) => updateParam("priority", e.target.value)}
           >
@@ -88,6 +92,8 @@ export function IncidentsPage() {
         <label>
           <span>Search</span>
           <input 
+            id="search-query"
+            name="search-query"
             type="text"
             placeholder="Search by title or ID"
             value={q}
