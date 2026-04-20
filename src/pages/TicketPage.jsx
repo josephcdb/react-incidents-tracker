@@ -27,7 +27,7 @@ export function TicketPage() {
   if (!ticket) {
     return (
       <section>
-        <h2 style={{ marginTop: 0 }}>Ticket not found</h2>
+        <h2 className="ticket-not-found">Ticket not found</h2>
         <p>
           No ticket exists for ID: <code>{ticketId}</code>
         </p>
@@ -39,8 +39,8 @@ export function TicketPage() {
   return (
     <section>
       {/* Header */}
-      <div style={{ display: "flex", flexDirection: "column", gap: 8}}>
-        <h2 style={{ margin: 0, fontSize: 22, fontWeight: 700, letterSpacing: "-0.5px" }}>{ticket.title}</h2>
+      <div>
+        <h2 className="ticket-title">{ticket.title}</h2>
         <ul>
           <li>ID: {ticket.id}</li>
           <li>Status: {ticket.status}</li>
@@ -48,55 +48,21 @@ export function TicketPage() {
       </div>
 
       {/* Tabs */}
-      <div
-        style={{
-          display: "flex",
-          gap: 8,
-          marginTop: 16,
-          borderBottom: "1px solid #ddd",
-          paddingBottom: 8,
-        }}
-      >
-      <NavLink
-        end
-        to=""
-        style={({ isActive }) => ({
-          fontWeight: isActive ? 600 : 400,
-          textDecoration: "none",
-          padding: "6px 10px",
-          borderRadius: 6,
-          background: isActive ? "#eee" : "transparent",
-          color: isActive ? "#000" : "#555",
-        })}
-      >
-        Overview
-      </NavLink>
+      <div className="ticket-tab">
+        <NavLink end to="" className="ticket-tab">Overview</NavLink>
+        <NavLink to="activity" className="ticket-tab">Activity</NavLink>
+      </div>
 
-      <NavLink
-        to="activity"
-        style={({ isActive }) => ({
-          fontWeight: isActive ? 600 : 400,
-          textDecoration: "none",
-          padding: "6px 10px",
-          borderRadius: 6,
-          background: isActive ? "#eee" : "transparent",
-          color: isActive ? "#000" : "#555",
-        })}
-      >
-        Activity
-      </NavLink>
-    </div>
+      {/* Content */}
+      <div className="ticket-activity">
+        <Outlet context={{ ticket }} />
+      </div>
 
-    {/* Content */}
-    <div style={{ marginTop: 16 }}>
-      <Outlet context={{ ticket }} />
-    </div>
-
-    {/* Back button at bottom */}
-    <div style={{ marginTop: 16 }}>
-      <button onClick={backToTickets}>Back to tickets</button>
-    </div>
-  </section>
+      {/* Back button at bottom */}
+      <div className="ticket-activity">
+        <button onClick={backToTickets}>Back to tickets</button>
+      </div>
+    </section>
   );
 }
 

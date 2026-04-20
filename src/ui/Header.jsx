@@ -1,6 +1,5 @@
 import { Navigation } from "./Navigation.jsx";
 import "../css/header.css";
-import "../css/layout.css";
 
 export const Header = () => {    
     return (

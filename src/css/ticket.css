@@ -1,0 +1,34 @@
+.ticket-not-found {
+    margin-top: 10px;
+}
+
+.ticket-title {
+    margin: 0;
+    margin-top: 10px;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
+
+.ticket-tab {
+    padding: 5px 12px;
+    color: #555;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    padding-bottom: 12px;
+    font-weight: 400;
+}
+
+.ticket-tab.active {
+    border-color: #555;
+    background-color: #555;
+    color: #fff;
+    font-weight: 600;
+    text-decoration: none;
+    padding: 6px 10px;
+    border-radius: 6px;
+}
+
+.ticket-activity {
+    margin-top: 16px;
+}
