@@ -7,7 +7,7 @@ export function TicketsPage() {
 
   // The list is filtered directly from the URL, not local component state.
   const filtered =
-    status === "open" || status === "closed"
+    ((status === "open") || (status === "closed"))
       ? tickets.filter((t) => t.status === status)
       : tickets;
 
@@ -56,7 +56,7 @@ export function TicketsPage() {
         ))}
       </ul>
 
-      {filtered.length === 0 ? (
+      {(filtered.length === 0) ? (
         <p>No tickets match this filter.</p>
       ) : null}
     </section>

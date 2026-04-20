@@ -24,7 +24,7 @@ export function IncidentsPage() {
     const next = new URLSearchParams(searchParams);
 
     // Remove the parameter if the value is empty, null, or "all"
-    const shouldRemove = value === "" || value == null || value === "all";
+    const shouldRemove = (value === "") || (value === null) || (value === "all");
       if (shouldRemove) {
         next.delete(key);
       } else {
@@ -32,7 +32,7 @@ export function IncidentsPage() {
       }
 
       // If q is cleared, delete it instead of leaving q= in the URL
-      if (key === "q" && value.trim() === "") {
+      if ((key === "q") && (value.trim() === "")) {
         next.delete(key);
       }
 
@@ -40,10 +40,10 @@ export function IncidentsPage() {
   }
 
   const filtered = INCIDENTS.filter((incident) => {
-  const matchesStatus = status === "all" || incident.status === status;
-  const matchesPriority = priority === "all" || incident.priority === priority;
+  const matchesStatus = (status === "all") || (incident.status === status);
+  const matchesPriority = (priority === "all") || (incident.priority === priority);
   const matchesQuery =
-    q === "" ||
+    (q === "") ||
       incident.title.toLowerCase().includes(q.toLowerCase()) ||
       String(incident.id).includes(q);
 
@@ -100,7 +100,7 @@ export function IncidentsPage() {
       </section>
 
       <div className="container">
-        {filtered.length === 0 ? (
+        {(filtered.length === 0) ? (
           <div className="container-description">
             No incidents match the current filters.
           </div>
